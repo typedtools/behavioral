@@ -1,0 +1,8 @@
+{
+  "name": "@typedtools/behavioral",
+  "main": "index.ts",
+  "dependencies": {
+    "rxjs": "7.3.0",
+    "gherkin": "9.0.0"
+  }
+}

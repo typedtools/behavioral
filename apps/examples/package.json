@@ -1,0 +1,10 @@
+{
+  "name": "@apps/examples",
+  "dependencies": {
+    "@typedtools/behavioral": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "4.4.3",
+    "@types/jest": "27.0.2"
+  }
+}
