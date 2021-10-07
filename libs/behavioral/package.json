@@ -2,7 +2,10 @@
   "name": "@typedtools/behavioral",
   "main": "index.ts",
   "dependencies": {
+    "uuid": "8.3.2",
     "rxjs": "7.3.0",
-    "gherkin": "9.0.0"
+    "@cucumber/gherkin": "22.0.0",
+    "@types/uuid": "8.3.1",
+    "class-transformer": "0.4.0"
   }
 }

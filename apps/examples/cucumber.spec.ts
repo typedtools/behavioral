@@ -1,41 +1,42 @@
-import { 
-  gherkin, 
+import {
+  gherkin,
   Given, 
   Param, 
-  Specification, 
+  Def, 
   State, 
   Then, 
   When,
 } from '@typedtools/behavioral';
+import { execute } from '@typedtools/behavioral-jest';
 
 @State()
-export class EatingState {
+export class Cucumbers {
   amount = 0;
 }
 
-@Specification()
-export class EatingSpecification {
+@Def()
+export class EatingDef {
   constructor(
-    private state: EatingState,
+    private cucumbers: Cucumbers,
   ) {}
 
   @Given('there are <amount> cucumbers')
   setCucumberAmount(@Param('amount') amount: number): void {
-    this.state.amount = amount;
+    this.cucumbers.amount = amount;
   }
 
   @When('I eat <amount> cucumbers')
   eat(@Param('amount') amount: number): void {
-    this.state.amount = this.state.amount - amount;
+    this.cucumbers.amount = this.cucumbers.amount - amount;
   }
 
   @Then('I should have <amount> cucumbers')
   verifyCucumberAmount(@Param('amount') amount: number): void {
-    expect(this.state.amount).toBe(amount);
+    expect(this.cucumbers.amount).toBe(amount);
   }
 }
 
-gherkin`
+const parsedGherkin = gherkin`
 Feature: Eating
 
   Scenario Outline: eating
@@ -48,7 +49,7 @@ Feature: Eating
       |    12 |   5 |    7 |
       |    20 |   5 |   15 |
 `
-  .use([
-    EatingSpecification
-  ])
-  .run();
+
+console.log(parsedGherkin);
+
+execute(parsedGherkin);

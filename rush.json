@@ -51,6 +51,10 @@
       "projectFolder": "./libs/behavioral"
     },
     {
+      "packageName": "@typedtools/behavioral-jest",
+      "projectFolder": "./libs/behavioral-jest"
+    },
+    {
       "packageName": "@apps/examples",
       "projectFolder": "./apps/examples"
     }

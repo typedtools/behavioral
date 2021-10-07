@@ -1,0 +1,13 @@
+{
+  "name": "@typedtools/behavioral-jest",
+  "main": "index.ts",
+  "peerDependencies": {
+    "@typedtools/behavioral": "workspace:*"
+  },
+  "dependencies": {
+    "@types/jest": "27.0.2"
+  },
+  "devDependencies": {
+    "@typedtools/behavioral": "workspace:*"
+  }
+}
