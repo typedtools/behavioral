@@ -1,9 +1,11 @@
-import { Type } from 'class-transformer';
+import { Expose, Type } from 'class-transformer';
 import { Feature } from './Feature';
 
 export class Gherkin {
-  filename?: string;
-
   @Type(() => Feature)
+  @Expose()
   feature!: Feature;
+
+  @Expose()
+  raw!: string;
 }

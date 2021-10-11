@@ -1,21 +1,49 @@
 import {
   gherkin,
   Given, 
-  Param, 
-  Def, 
+  Param,
   State, 
   Then, 
   When,
 } from '@typedtools/behavioral';
-import { execute } from '@typedtools/behavioral-jest';
+import { Test } from '@typedtools/behavioral-jest';
 
 @State()
 export class Cucumbers {
   amount = 0;
 }
 
-@Def()
-export class EatingDef {
+@Test(gherkin`
+Feature: Eating
+
+  Background:
+    Given a global administrator named "Greg"
+      And a blog named "Greg's anti-tax rants"
+      And a customer named "Dr. Bill"
+      And a blog named "Expensive Therapy" owned by "Dr. Bill"
+
+  @skip
+  Scenario Outline: eating
+    Given there are <start> cucumbers
+      """
+      Some Title, Eh?
+      ===============
+      Here is the first paragraph of my blog post. Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit.
+      """
+     When I eat <eat> cucumbers
+      | name   | email              | twitter         |
+      | Aslak  | aslak@cucumber.io  | @aslak_hellesoy |
+      | Julien | julien@cucumber.io | @jbpros         |
+      | Matt   | matt@cucumber.io   | @mattwynne      |
+     Then I should have <left> cucumbers
+
+    Examples:
+      | start | eat | left |
+      |    12 |   5 |    7 |
+      |    20 |   5 |   15 |
+`)
+export class EatingTest {
   constructor(
     private cucumbers: Cucumbers,
   ) {}
@@ -35,21 +63,3 @@ export class EatingDef {
     expect(this.cucumbers.amount).toBe(amount);
   }
 }
-
-const parsedGherkin = gherkin`
-Feature: Eating
-
-  Scenario Outline: eating
-    Given there are <start> cucumbers
-     When I eat <eat> cucumbers
-     Then I should have <left> cucumbers
-
-    Examples:
-      | start | eat | left |
-      |    12 |   5 |    7 |
-      |    20 |   5 |   15 |
-`
-
-console.log(parsedGherkin);
-
-execute(parsedGherkin);
