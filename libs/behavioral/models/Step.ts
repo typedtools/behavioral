@@ -26,6 +26,7 @@ export class Step {
   docString?: DocString;
 
   @Expose()
+  @Type(() => DataTable)
   dataTable?: DataTable;
 
   @Expose()
