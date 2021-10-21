@@ -18,8 +18,6 @@ export const parser = (value: TemplateStringsArray): Gherkin => {
     console.log(err);
   }
 
-  console.log(JSON.stringify(ast, undefined, 2));
-
   return plainToClass(Gherkin, {
     ...ast,
     raw,

@@ -1,5 +1,6 @@
-export const Timeout = (): ClassDecorator | MethodDecorator => {
-  return (target: any, propertyKey?: string | symbol, descriptor?: TypedPropertyDescriptor<any>) => {
+import { StepOption } from './Step';
 
-  }
-}
+export const Timeout = (ms: number): MethodDecorator => StepOption<number>({
+  name: 'timeout',
+  value: ms,
+});

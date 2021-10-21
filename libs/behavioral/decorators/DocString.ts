@@ -1,7 +1,6 @@
-export const DocString = (): ParameterDecorator => (
-  target: any,
-  propertyKey: string | symbol,
-  parameterIndex: number,
-) => {
+import { Step } from '../models/Step';
+import { StepArgument } from './Step';
 
-}
+export const DocString = (): ParameterDecorator => StepArgument((step: Step) => {
+  return step.docString?.content;
+});
