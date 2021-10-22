@@ -1,9 +1,9 @@
 import { Parser, AstBuilder, GherkinClassicTokenMatcher } from '@cucumber/gherkin';
 import { v4 } from 'uuid';
 import { plainToClass } from 'class-transformer';
-import { Gherkin } from '..';
+import { Gherkin } from '../models';
 
-export const parser = (value: TemplateStringsArray): Gherkin => {
+export const parser = (value: TemplateStringsArray, ...interpolations: any[]): Gherkin => {
   let ast: any;
   let raw: string = value.join('');
 

@@ -1,27 +1,22 @@
-import { Children, Gherkin, Scenario, Type } from '@typedtools/behavioral';
-import { Background } from '@typedtools/behavioral/models/Background';
+import { registerRuntime } from '@typedtools/behavioral';
+import { lastValueFrom } from 'rxjs';
+import {
+  Children,
+  Gherkin,
+  Scenario,
+  Background,
+} from '@typedtools/behavioral/models';
 
-export const execute = (gherkin: Gherkin, definitions: Type<any>[]): void => {
-  // console.log(JSON.stringify(gherkin, undefined, 2));
-  definitions.forEach(def => {
-    console.log(Reflect.getOwnMetadata('behavioral:step', def));
-  });
-
-  console.log(definitions);
-
+registerRuntime((gherkin: Gherkin): void => {
   describe(gherkin.feature.name, () => {
     gherkin.feature.children.forEach((child: Children) => {
       if (child instanceof Background) {
-        beforeEach(() => {
-          // child.steps
-        });
+        beforeEach(() => lastValueFrom(child.execute()));
       } else if (child instanceof Scenario) {
-        const testFn = child.tags.find(tag => tag.name === '@skip') ? test.skip : test;
+        const testFn = child.isSkipped() ? test.skip : test;
 
-        testFn(child.name, () => {
-          
-        });
+        testFn(child.name, () => lastValueFrom(child.execute()));
       }
     });
   });
-}
+});

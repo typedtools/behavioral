@@ -1,22 +1,24 @@
+/* Place in jest configuration: start */
 import 'reflect-metadata';
+import '@typedtools/behavioral-jest';
+/* end */
+import { gherkin } from '@typedtools/behavioral';
 import {
-  gherkin,
   Given, 
   Param,
   State, 
-  StepDef, 
+  Handler, 
   Then, 
   When,
-} from '@typedtools/behavioral';
-import { execute } from '@typedtools/behavioral-jest';
+} from '@typedtools/behavioral/decorators';
 
 @State()
 class Cucumbers {
   amount = 0;
 }
 
-@StepDef()
-class EatingDef {
+@Handler()
+class EatingHandler {
   constructor(
     private cucumbers: Cucumbers,
   ) {}
@@ -37,7 +39,8 @@ class EatingDef {
   }
 }
 
-execute(gherkin`
+gherkin`
+@use(${EatingHandler})
 Feature: Eating
 
   Scenario Outline: eating
@@ -49,4 +52,4 @@ Feature: Eating
       | start | eat | left |
       |    12 |   5 |    7 |
       |    20 |   5 |   15 |
-`, [EatingDef]);
+`;

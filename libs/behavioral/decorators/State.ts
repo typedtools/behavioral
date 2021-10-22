@@ -1,3 +1,1 @@
-export const State = (): ClassDecorator => (
-  target: any,
-) => {}
+export const State = (): ClassDecorator => () => {}
