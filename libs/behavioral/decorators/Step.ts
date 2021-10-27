@@ -1,3 +1,4 @@
+import { plainToClass } from 'class-transformer';
 import { Step as Model, StepType } from '../models/Step';
 
 export const STEP_META_KEY = 'behavioral:step';
@@ -16,32 +17,32 @@ export interface StepArgument {
   fn: StepArgumentFunction
 }
 
-export interface StepMatcher {
+export interface StepExpression {
   type: StepType;
-  expression: string;
+  text: string;
 }
 
 export interface StepHandler {
   method: string | symbol;
-  matchers: StepMatcher[];
+  expressions: StepExpression[];
   arguments: StepArgument[];
   options: StepMatcherOption[];
 }
 
-export const Step = (stepMatcher: StepMatcher): MethodDecorator => (
+export const Step = (expression: StepExpression): MethodDecorator => (
   target: any,
   propertyKey: string | symbol,
   descriptor: PropertyDescriptor
 ) => {
-  const handlers: StepHandler[] = Reflect.getOwnMetadata(STEP_META_KEY, target.constructor) ?? [];
+  const handlers: StepHandler[] = Reflect.getMetadata(STEP_META_KEY, target.constructor) ?? [];
   const handler: StepHandler | undefined = handlers.find(handler => handler.method === propertyKey);
 
   if (handler) {
-    handler.matchers.push(stepMatcher);
+    handler.expressions.push(expression);
   } else {
     handlers.push({
       method: propertyKey,
-      matchers: [stepMatcher],
+      expressions: [expression],
       options: [],
       arguments: [],
     });
@@ -55,7 +56,7 @@ export const StepOption = <T>(option: StepMatcherOption<T>): MethodDecorator => 
   propertyKey: string | symbol,
   descriptor: PropertyDescriptor
 ) => {
-  const handlers: StepHandler[] = Reflect.getOwnMetadata(STEP_META_KEY, target.constructor) ?? [];
+  const handlers: StepHandler[] = Reflect.getMetadata(STEP_META_KEY, target.constructor) ?? [];
   const handler: StepHandler | undefined = handlers.find(handler => handler.method === propertyKey);
 
   if (handler) {
@@ -63,7 +64,7 @@ export const StepOption = <T>(option: StepMatcherOption<T>): MethodDecorator => 
   } else {
     handlers.push({
       method: propertyKey,
-      matchers: [],
+      expressions: [],
       options: [option],
       arguments: [],
     });
@@ -77,16 +78,20 @@ export const StepArgument = (fn: StepArgumentFunction): ParameterDecorator => (
   propertyKey: string | symbol,
   parameterIndex: number,
 ) => {
-  const handlers: StepHandler[] = Reflect.getOwnMetadata(STEP_META_KEY, target.constructor) ?? [];
+  const handlers: StepHandler[] = Reflect.getMetadata(STEP_META_KEY, target.constructor) ?? [];
   const handler: StepHandler | undefined = handlers.find(handler => handler.method === propertyKey);
-  const option = { fn, index: parameterIndex };
+  const option = { fn: (step: Model) => {
+    const type = Reflect.getMetadata('design:paramtypes', target, propertyKey)[parameterIndex];
+
+    return plainToClass(type, fn(step));
+  }, index: parameterIndex };
 
   if (handler) {
     handler.arguments.push(option);
   } else {
     handlers.push({
       method: propertyKey,
-      matchers: [],
+      expressions: [],
       options: [],
       arguments: [option],
     });

@@ -10,7 +10,7 @@
     "skipLibCheck": true,
     "lib": [
       "ES2020",
-      "DOM"
+      "DOM",
     ]
   }
 }

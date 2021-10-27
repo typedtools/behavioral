@@ -3,9 +3,7 @@ import { Scenario } from './Scenario';
 import { Location } from './Location';
 import { Background } from './Background';
 
-export type Children = Scenario | Background;
-
-const transformScenarioOutline = (astScenario: any): Scenario[] => {
+const transformScenarioOutline = (astScenario: any, handlers: any[], backgrounds: Background[]): Scenario[] => {
   return astScenario.examples.reduce((scenarios: Scenario[], example: any) => {
     scenarios.push(...example.tableBody.map((row: any, i: number) => {
         const data = row.cells.reduce((data: any, cell: any, j: number) => {
@@ -23,6 +21,8 @@ const transformScenarioOutline = (astScenario: any): Scenario[] => {
               return text.replace(`<${key}>`, value);
             }, step.text),
           })),
+          handlers,
+          backgrounds,
         }, { strategy: 'excludeAll' });
     }));
 
@@ -39,25 +39,41 @@ export class Feature {
   location!: Location;
 
   @Expose()
-  @Transform(({ key, obj }) => {
-    return obj[key].reduce((acc: Children[], child: any) => {
+  @Transform(({ obj }) => {
+    let backgrounds: Background[] = [];
+
+    return obj.children.reduce((acc: Scenario[], child: any) => {
+      if (child.background) {
+        backgrounds.push(plainToClass(Background, child.background, { strategy: 'excludeAll' }));
+      }
+
       if (child.scenario) {
-        switch (child.scenario?.keyword) {
+        switch (child.scenario?.keyword.trim()) {
           case 'Scenario Outline':
-            acc.push(...transformScenarioOutline(child.scenario));
+            acc.push(...transformScenarioOutline(
+              {
+                ...child.scenario,
+                tags: [...obj.tags, ...child.scenario.tags],
+              },
+              obj.handlers,
+              backgrounds,
+            ));
             break;
           case 'Scenario':
-            acc.push(plainToClass(Scenario, child.scenario, { strategy: 'excludeAll' }));
+            acc.push(plainToClass(Scenario, {
+              ...child.scenario,
+              tags: [...obj.tags, ...child.scenario.tags],
+              handlers: obj.handlers,
+              backgrounds,
+            }, { strategy: 'excludeAll' }));
             break;
           default:
             break;
         }
-      } else if (child.background) {
-        acc.push(plainToClass(Background, child.background, { strategy: 'excludeAll' }));
       }
 
       return acc;
-    }, [] as Children[]);
+    }, [] as Scenario[]);
   })
-  children!: Children[];
+  scenarios!: Scenario[];
 }
