@@ -1,9 +1,12 @@
 import { Expose, Type } from 'class-transformer';
 import { Location } from './Location';
 
-export class Tag {
+export class Tag<T = any> {
   @Expose()
-  name!: string
+  name!: string;
+
+  @Expose()
+  arguments?: T[];
 
   @Expose()
   @Type(() => Location)

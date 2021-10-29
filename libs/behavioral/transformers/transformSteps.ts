@@ -1,5 +1,6 @@
 import { plainToClass } from 'class-transformer';
 import { STEP_META_KEY } from '../decorators';
+import { MissingHandlerError } from '../errors';
 import { Step } from '../models';
 
 export const transformSteps = ({ obj, key }: any): Step[] => {
@@ -46,6 +47,10 @@ export const transformSteps = ({ obj, key }: any): Step[] => {
         }
       });
     });
+
+    if (!result.class) {
+      throw new MissingHandlerError(step);
+    }
 
     return plainToClass(Step, result, { strategy: 'excludeAll' });
   });

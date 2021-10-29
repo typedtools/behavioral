@@ -61,4 +61,7 @@ export class Step {
     return obj[key];
   })
   options!: any[];
+
+  @Expose()
+  steps?: Step[];
 }
