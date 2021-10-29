@@ -44,7 +44,10 @@ export class Feature {
 
     return obj.children.reduce((acc: Scenario[], child: any) => {
       if (child.background) {
-        backgrounds.push(plainToClass(Background, child.background, { strategy: 'excludeAll' }));
+        backgrounds.push(plainToClass(Background, {
+          ...child.background,
+          handlers: obj.handlers,
+        }, { strategy: 'excludeAll' }));
       }
 
       if (child.scenario) {

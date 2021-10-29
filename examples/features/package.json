@@ -1,5 +1,9 @@
 {
-  "name": "@apps/examples",
+  "name": "@examples/features",
+  "private": true,
+  "scripts": {
+    "test": "jest --no-cache"
+  },
   "devDependencies": {
     "@typedtools/behavioral": "workspace:*",
     "@typedtools/behavioral-jest": "workspace:*",

@@ -1,7 +1,7 @@
 import { Expose, plainToClass, Transform, Type } from 'class-transformer';
 import { concatMap, from, Observable, of } from 'rxjs';
 import { Background } from '.';
-import { STEP_META_KEY } from '../decorators';
+import { transformSteps } from '../transformers';
 import { Async, Type as Constructor } from '../types';
 import { Location } from './Location';
 import { Step } from './Step';
@@ -23,60 +23,14 @@ export class Scenario {
   location!: Location;
 
   @Expose()
-  @Transform(({ obj, key }) => {
-    let prevKeyword: string;
-    const matchers: any[] = obj.handlers.reduce(
-      (matchers: any[], handler: any) => {
-        const nextMatchers = Reflect.getMetadata(STEP_META_KEY, handler);
-
-        matchers.push(...nextMatchers.map((matcher: any) => ({
-          ...matcher,
-          class: handler,
-        })));
-
-        return matchers;
-      },
-      [],
-    );
-    
-    return obj[key].map((step: any) => {
-      let result: any = {...step};
-      const keyword = step.keyword.toLowerCase().trim();
-
-      if (['and', '*'].includes(keyword)) {
-        result.keyword = prevKeyword;
-      } else {
-        prevKeyword = keyword;
-        result.keyword = keyword;
-      }
-
-      matchers.forEach((matcher: any) => {
-        matcher.expressions.forEach((expression: any) => {
-          if (expression.type === keyword) {
-            const regex = new RegExp(`^${expression.text.replace(/</gi, '(?<').replace(/>/gi, '>\\w+)')}$`);
-            const match: any = regex.exec(step.text);
-
-            if (match !== null) {
-              result.params = {...match.groups};
-              result.method = matcher.method;
-              result.class = matcher.class;
-              result.options = matcher.options;
-              result.arguments = matcher.arguments;
-            }
-          }
-        });
-      });
-
-      return plainToClass(Step, result, { strategy: 'excludeAll' });
-    });
-  })
+  @Transform(transformSteps)
   steps!: Step[];
 
   @Expose()
   handlers!: Constructor<any>;
 
   @Expose()
-  backgrounds?: Background[];
+  backgrounds!: Background[];
 
   isSkipped(): boolean {
     return this.tags?.find(tag => tag.name === '@skip') ? true : false;
@@ -85,8 +39,13 @@ export class Scenario {
   execute(): Observable<void> {
     let states = new Map<any, any>();
     let handlers = new Map<any, any>();
+    const backgroundSteps: Step[] = this.backgrounds.reduce((acc: Step[], background: Background) => {
+      acc.push(...background.steps);
 
-    return of(...this.steps).pipe(
+      return acc;
+    }, [] as Step[]);
+
+    return of(...backgroundSteps, ...this.steps).pipe(
       concatMap((step: Step) => {
         let handler: any;
 
@@ -98,6 +57,7 @@ export class Scenario {
   
             if (!states.has(State)) {
               state = new State();
+              states.set(State, state);
             } else {
               state = states.get(State);
             }
@@ -113,7 +73,7 @@ export class Scenario {
         const result = handler[step.method](...step.arguments.map(arg => arg.fn(step))) as Async;
 
         return result instanceof Promise || result instanceof Observable ? from(result) : of(result);
-      })
+      }),
     );
   }
 }
