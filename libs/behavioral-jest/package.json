@@ -1,15 +1,15 @@
 {
   "name": "@typedtools/behavioral-jest",
+  "version": "0.0.0",
   "main": "index.ts",
   "peerDependencies": {
-    "@typedtools/behavioral": "workspace:*",
-    "rxjs": "7.3.0"
+    "@typedtools/behavioral": "workspace:*"
   },
   "dependencies": {
-    "@types/jest": "27.0.2"
+    "rxjs": "7.3.0"
   },
   "devDependencies": {
-    "@typedtools/behavioral": "workspace:*",
-    "rxjs": "7.3.0"
+    "@types/jest": "27.0.2",
+    "@typedtools/behavioral": "workspace:*"
   }
 }
