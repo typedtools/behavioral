@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "main": "index.ts",
   "description": "Allows to use behavioral with jest environment",
+  "repository": {
+    "url": "https://github.com/typedtools/behavioral"
+  },
+  "homepage": "https://typedtools.github.io/behavioral/",
   "license": "MIT",
   "scripts": {
     "build": "tsc"
