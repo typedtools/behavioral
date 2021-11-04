@@ -2,6 +2,19 @@
   "name": "@typedtools/behavioral",
   "version": "0.1.0",
   "main": "index.ts",
+  "description": "Tool to write tests in gherkin",
+  "license": "MIT",
+  "keywords": [
+    "bdd",
+    "gherkin",
+    "typescript",
+    "testing",
+    "jest",
+    "behavioral"
+  ],
+  "repository": {
+    "url": "https://github.com/typedtools/behavioral"
+  },
   "scripts": {
     "build": "tsc"
   },
