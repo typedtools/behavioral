@@ -1,0 +1,25 @@
+{
+  "name": "@typedtools/behavioral-jest",
+  "entries": [
+    {
+      "version": "0.1.0",
+      "tag": "@typedtools/behavioral-jest_v0.1.0",
+      "date": "Thu, 04 Nov 2021 19:21:02 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Initial version of library"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@typedtools/behavioral\" to `0.1.0`"
+          },
+          {
+            "comment": "Updating dependency \"@typedtools/behavioral\" to `0.1.0`"
+          }
+        ]
+      }
+    }
+  ]
+}
