@@ -1,6 +1,6 @@
 {
   "name": "@typedtools/behavioral",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "index.ts",
   "dependencies": {
     "uuid": "8.3.2",

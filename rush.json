@@ -48,15 +48,18 @@
   "projects": [
     {
       "packageName": "@typedtools/behavioral",
-      "projectFolder": "./libs/behavioral"
+      "projectFolder": "./libs/behavioral",
+      "shouldPublish": true
     },
     {
       "packageName": "@typedtools/behavioral-jest",
-      "projectFolder": "./libs/behavioral-jest"
+      "projectFolder": "./libs/behavioral-jest",
+      "shouldPublish": true
     },
     {
       "packageName": "@examples/features",
-      "projectFolder": "./examples/features"
+      "projectFolder": "./examples/features",
+      "shouldPublish": false
     }
   ]
 }
