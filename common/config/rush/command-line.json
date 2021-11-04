@@ -9,6 +9,14 @@
       "ignoreMissingScript": true,
       "enableParallelism": false,
       "allowWarningsInSuccessfulBuild": true
+    },
+    {
+      "commandKind": "bulk",
+      "name": "build",
+      "summary": "Run build",
+      "ignoreMissingScript": true,
+      "enableParallelism": false,
+      "allowWarningsInSuccessfulBuild": true
     }
   ],
 
