@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es5",                                                                  
+    "experimentalDecorators": true,                   
+    "emitDecoratorMetadata": true,                    
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "lib": [
+      "ES2020",
+      "DOM",
+      "ES2015.Reflect"
+    ]
+  }
+}

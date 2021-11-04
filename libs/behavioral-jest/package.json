@@ -2,6 +2,9 @@
   "name": "@typedtools/behavioral-jest",
   "version": "0.1.0",
   "main": "index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
   "peerDependencies": {
     "@typedtools/behavioral": "workspace:*"
   },
@@ -10,6 +13,7 @@
   },
   "devDependencies": {
     "@types/jest": "27.0.2",
-    "@typedtools/behavioral": "workspace:*"
+    "@typedtools/behavioral": "workspace:*",
+    "typescript": "4.4.3"
   }
 }
