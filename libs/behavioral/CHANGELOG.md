@@ -1,6 +1,13 @@
 # Change Log - @typedtools/behavioral
 
-This log was last generated on Fri, 05 Nov 2021 14:22:11 GMT and should not be manually modified.
+This log was last generated on Fri, 05 Nov 2021 14:30:13 GMT and should not be manually modified.
+
+## 0.1.4
+Fri, 05 Nov 2021 14:30:13 GMT
+
+### Patches
+
+- Update package description
 
 ## 0.1.3
 Fri, 05 Nov 2021 14:22:11 GMT
