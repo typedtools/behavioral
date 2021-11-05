@@ -2,6 +2,26 @@
   "name": "@typedtools/behavioral-jest",
   "entries": [
     {
+      "version": "0.1.1",
+      "tag": "@typedtools/behavioral-jest_v0.1.1",
+      "date": "Fri, 05 Nov 2021 12:38:45 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Build package before publish"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@typedtools/behavioral\" to `0.1.1`"
+          },
+          {
+            "comment": "Updating dependency \"@typedtools/behavioral\" to `0.1.1`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.1.0",
       "tag": "@typedtools/behavioral-jest_v0.1.0",
       "date": "Thu, 04 Nov 2021 19:21:02 GMT",
