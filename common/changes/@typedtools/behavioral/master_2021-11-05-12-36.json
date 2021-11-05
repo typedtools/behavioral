@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@typedtools/behavioral",
+      "comment": "Build package before publish",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@typedtools/behavioral",
+  "email": "ArekZc@gmail.com"
+}
