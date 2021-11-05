@@ -1,8 +1,8 @@
 {
   "name": "@typedtools/behavioral",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "main": "index.ts",
-  "description": "Tool to write tests in gherkin",
+  "description": "Make reusable tests powered by Gherkin language",
   "license": "MIT",
   "keywords": [
     "bdd",

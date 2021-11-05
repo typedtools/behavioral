@@ -2,6 +2,46 @@
   "name": "@typedtools/behavioral-jest",
   "entries": [
     {
+      "version": "0.1.3",
+      "tag": "@typedtools/behavioral-jest_v0.1.3",
+      "date": "Fri, 05 Nov 2021 14:22:11 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Update README.md"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@typedtools/behavioral\" to `0.1.3`"
+          },
+          {
+            "comment": "Updating dependency \"@typedtools/behavioral\" to `0.1.3`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.1.2",
+      "tag": "@typedtools/behavioral-jest_v0.1.2",
+      "date": "Fri, 05 Nov 2021 14:02:07 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Remove source files from final bundle"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@typedtools/behavioral\" to `0.1.2`"
+          },
+          {
+            "comment": "Updating dependency \"@typedtools/behavioral\" to `0.1.2`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.1.1",
       "tag": "@typedtools/behavioral-jest_v0.1.1",
       "date": "Fri, 05 Nov 2021 12:38:45 GMT",
