@@ -60,6 +60,11 @@
       "packageName": "@examples/features",
       "projectFolder": "./examples/features",
       "shouldPublish": false
+    },
+    {
+      "packageName": "@docs/gh-pages",
+      "projectFolder": "./docs/gh-pages",
+      "shouldPublish": false
     }
   ]
 }

@@ -18,3 +18,4 @@ jobs:
       - run: node common/scripts/install-run-rush.js change -v
       - run: node common/scripts/install-run-rush.js install
       - run: node common/scripts/install-run-rush.js test
+      - run: node common/scripts/install-run-rush.js build
