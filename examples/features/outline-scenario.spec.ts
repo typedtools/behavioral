@@ -1,7 +1,3 @@
-import 'reflect-metadata';
-/* Place in jest configuration: start */
-import '@typedtools/behavioral-jest';
-/* end */
 import { gherkin } from '@typedtools/behavioral';
 import {
   Given, 

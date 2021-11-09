@@ -46,18 +46,17 @@ const config = {
         title: 'Behavioral',
         logo: {
           alt: 'Behavioral Logo',
-          src: '/behavioral/img/logo.svg',
+          src: '/behavioral/img/logo.png',
         },
         items: [
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'getting-started/installation',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Docs',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/typedtools/behavioral',
             label: 'GitHub',
             position: 'right',
           },
@@ -71,7 +70,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/intro',
+                to: '/docs/getting-started/installation',
               },
             ],
           },
@@ -95,10 +94,6 @@ const config = {
           {
             title: 'More',
             items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
               {
                 label: 'GitHub',
                 href: 'https://github.com/typedtools/behavioral',

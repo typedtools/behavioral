@@ -6,44 +6,26 @@ export enum Operator {
 }
 
 export class Calculator {
-  private _expression: (string | number)[] = [];
+  private _expression: (string | number)[] = [0];
 
-  append(num: number): void {
-    this._expression.push(num);
-  }
-
-  add(num: number): void {
-    this.handleMissingLeftHand();
-
-    this._expression.push(Operator.ADD, num);
-  }
-
-  subtract(num: number): void {
-    this.handleMissingLeftHand();
-
-    this._expression.push(Operator.SUBTRACT, num);
-  }
-
-  divide(num: number): void {
-    this.handleMissingLeftHand();
-
-    this._expression.push(Operator.DIVIDE, num);
-  }
-
-  multiply(num: number): void {
-    this.handleMissingLeftHand();
-
-    this._expression.push(Operator.MULTIPLY, num);
+  append(part: number | Operator): void {
+    if (typeof part === 'number') {
+      if (typeof this._expression[this._expression.length - 1] === 'number') {
+        this._expression[this._expression.length - 1] = part;
+      } else {
+        this._expression.push(part);
+      }
+    } else {
+      if (typeof this._expression[this._expression.length - 1] === 'string') {
+        this._expression[this._expression.length - 1] = part;
+      } else {
+        this._expression.push(part);
+      }
+    }
   }
 
   reset() {
     this._expression = [];
-  }
-
-  private handleMissingLeftHand(): void {
-    if (typeof this._expression[this.expression.length - 1] !== 'number') {
-      this._expression.push(0);
-    }
   }
 
   get expression(): string {

@@ -1,4 +1,5 @@
 import { Given, Handler, Param, Then, When } from '@typedtools/behavioral/decorators';
+import { Operator } from '../classes/Calculator';
 import { CalculatorState } from '../states/CalculatorState';
 
 @Handler()
@@ -15,22 +16,26 @@ export class BasicCalculatorHandler {
 
   @When('I add "<num>"')
   add(@Param('num') num: number): void {
-    this.state.calculator.add(num);
+    this.state.calculator.append(Operator.ADD);
+    this.state.calculator.append(num);
   }
 
   @When('I subtract "<num>"')
   subtract(@Param('num') num: number): void {
-    this.state.calculator.subtract(num);
+    this.state.calculator.append(Operator.SUBTRACT);
+    this.state.calculator.append(num);
   }
 
   @When('I divide by "<num>"')
   divide(@Param('num') num: number): void {
-    this.state.calculator.divide(num);
+    this.state.calculator.append(Operator.DIVIDE);
+    this.state.calculator.append(num);
   }
 
   @When('I multiply by "<num>"')
   multiply(@Param('num') num: number): void {
-    this.state.calculator.multiply(num);
+    this.state.calculator.append(Operator.MULTIPLY);
+    this.state.calculator.append(num);
   }
 
   @Then('I see "<value>" as a result')

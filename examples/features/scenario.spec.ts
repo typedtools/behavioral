@@ -1,6 +1,3 @@
-import 'reflect-metadata';
-/* Place in jest configuration: start */
-import '@typedtools/behavioral-jest';
 import { gherkin } from '@typedtools/behavioral';
 import { BasicCalculatorHandler } from './handlers/BasicCalculatorHandler';
 
