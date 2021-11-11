@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_docs_gh_pages=self.webpackChunk_docs_gh_pages||[]).push([[448],{4827:function(a){a.exports=JSON.parse('{"allTagsPath":"/behavioral/blog/tags","slug":"/behavioral/blog/tags/hello","name":"hello","count":2,"permalink":"/behavioral/blog/tags/hello"}')}}]);

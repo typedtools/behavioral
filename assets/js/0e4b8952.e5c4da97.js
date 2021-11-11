@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_docs_gh_pages=self.webpackChunk_docs_gh_pages||[]).push([[140],{1530:function(a){a.exports=JSON.parse('{"allTagsPath":"/behavioral/blog/tags","slug":"/behavioral/blog/tags/facebook","name":"facebook","count":1,"permalink":"/behavioral/blog/tags/facebook"}')}}]);
