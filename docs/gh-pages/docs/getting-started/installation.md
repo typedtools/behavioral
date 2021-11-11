@@ -51,20 +51,24 @@ This command will create `jest.config.js` in project root directory. Needs to be
 
 <Tabs>
   <TabItem value="config" label="jest.config.js" default>
-    <CodeBlock className="language-javascript" metastring="{5}">
+    <CodeBlock className="language-javascript" metastring="{5-10}">
       {`/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  setupFilesAfterEnv: ['<rootDir>/setup.ts']
+  testMatch: ["**/*.feature", "**/*.{spec,test}.{ts,js}"],
+  moduleFileExtensions: ['feature', 'js', 'mjs', 'ts'],
+  transform: {
+    "\\.feature$": "@typedtools/behavioral-jest"
+  },
+  setupFilesAfterEnv: ['<rootDir>/setup.ts'],
 };
       `}
     </CodeBlock>
   </TabItem>
   <TabItem value="setup" label="setup.ts">
     <CodeBlock className="language-typescript">
-      {`import 'reflect-metadata';
-import '@typedtools/behavioral-jest';`}
+      import 'reflect-metadata';
     </CodeBlock>
   </TabItem>
 </Tabs>

@@ -1,8 +1,4 @@
-import { gherkin } from '@typedtools/behavioral';
-import { BasicCalculatorHandler } from './handlers/BasicCalculatorHandler';
-
-gherkin`
-@use(${BasicCalculatorHandler})
+@use(./handlers/BasicCalculatorHandler.ts:BasicCalculatorHandler)
 Feature: Calculator
 
   Scenario: Addition
@@ -20,4 +16,3 @@ Feature: Calculator
   Scenario: Multiply
     When I multiply by "2"
     Then I see "0" as a result
-`

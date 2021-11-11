@@ -120,12 +120,8 @@ You can define multiple steps on single handler method.
 
 Now you are ready to write your first scenarios.
 
-```typescript
-import { gherkin } from '@typedtools/behavioral';
-import { BasicCalculatorHandler } from './handlers/BasicCalculatorHandler';
-
-gherkin`
-@use(${BasicCalculatorHandler})
+```feature
+@use(./handlers/BasicCalculatorHandler.ts:BasicCalculatorHandler)
 Feature: Calculator
 
   Scenario: Addition
@@ -146,4 +142,4 @@ Feature: Calculator
 `
 ```
 
-Now we can run it with jest command.
+Now we can run it with `jest` command to see result.

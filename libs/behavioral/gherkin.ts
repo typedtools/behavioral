@@ -3,19 +3,8 @@ import { v4 } from 'uuid';
 import { plainToClass } from 'class-transformer';
 import { Gherkin } from './models';
 
-export interface ExecutionRuntimeFunction {
-  (gherkin: Gherkin): void
-}
-
-let executionRuntimeFn: ExecutionRuntimeFunction | undefined;
-
-export const registerRuntime = (runtimeFn: ExecutionRuntimeFunction): void => {
-  executionRuntimeFn = runtimeFn;
-};
-
-export const gherkin = (value: TemplateStringsArray, handlers: any | any[]): Gherkin => {
+export const parse = (template: string, filename: string, handlers: any | any[]): Gherkin => {
   let ast: any;
-  let raw: string = value.join('');
 
   try {
     const builder = new AstBuilder(v4);
@@ -23,7 +12,7 @@ export const gherkin = (value: TemplateStringsArray, handlers: any | any[]): Ghe
     ast = new Parser(
       builder, 
       new GherkinClassicTokenMatcher()
-    ).parse(raw);
+    ).parse(template);
   } catch (err) {
     console.log(err);
   }
@@ -34,12 +23,8 @@ export const gherkin = (value: TemplateStringsArray, handlers: any | any[]): Ghe
       ...ast.feature,
       handlers: Array.isArray(handlers) ? handlers : [handlers],
     },
-    raw,
+    template,
   }, { strategy: 'excludeAll' });
-
-  if (executionRuntimeFn) {
-    executionRuntimeFn(parsedGherkin);
-  }
 
   return parsedGherkin;
 }

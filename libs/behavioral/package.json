@@ -1,7 +1,7 @@
 {
   "name": "@typedtools/behavioral",
   "version": "0.1.4",
-  "main": "index.ts",
+  "main": "index.js",
   "description": "Make reusable tests powered by Gherkin language",
   "license": "MIT",
   "keywords": [
