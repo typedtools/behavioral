@@ -23,10 +23,19 @@ Install Behavioral with dependencies all at once with following command:
   </TabItem>
   <TabItem value="pnpm" label="PNPM">
     <CodeBlock language="shell">
-      pnpm add --dev reflect-metadata jest typescript ts-jest @types/jest @typedtools/behavioral @typedtools/behavioral-jest
+      pnpm add --save-dev reflect-metadata jest typescript ts-jest @types/jest @typedtools/behavioral @typedtools/behavioral-jest
     </CodeBlock>
   </TabItem>
 </Tabs>
+
+## Configure typescript
+
+Behavioral uses decorators which are not turned on by default. Update your tsconfig.json file with the following options:
+
+```
+"experimentalDecorators": true,
+"emitDecoratorMetadata": true,
+```
 
 ## Configure jest
 

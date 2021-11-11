@@ -6,7 +6,7 @@ sidebar_position: 2
 
 In this short tutorial we will write test for following class using Behavioral.
 
-```typescript
+```typescript title="Calculator.ts"
 export enum Operator {
   ADD = '+',
   SUBTRACT = '-',
@@ -49,9 +49,9 @@ export class Calculator {
 
 It implements simple calculator. Behavioral requires to define class which will store state of a test.
 
-```typescript
+```typescript title="CalculatorState.ts"
 import { State } from '@typedtools/behavioral/decorators';
-import { Calculator } from '../classes/Calculator';
+import { Calculator } from './Calculator';
 
 @State()
 export class CalculatorState {
@@ -61,13 +61,13 @@ export class CalculatorState {
 
 Provided state class can be injected to handler class. Handlers are classes used to define implementation for gherkin steps. Below is example handler created for `Calculator` class.
 
-```typescript
+```typescript title="CalculatorHandler.ts"
 import { Given, Handler, Param, Then, When } from '@typedtools/behavioral/decorators';
-import { Operator } from '../classes/Calculator';
-import { CalculatorState } from '../states/CalculatorState';
+import { Operator } from './Calculator';
+import { CalculatorState } from './CalculatorState';
 
 @Handler()
-export class BasicCalculatorHandler {
+export class CalculatorHandler {
   /*
     State object is injected via constructor.
     There is only one instance of state class per scenario, 
@@ -120,8 +120,8 @@ You can define multiple steps on single handler method.
 
 Now you are ready to write your first scenarios.
 
-```feature
-@use(./handlers/BasicCalculatorHandler.ts:BasicCalculatorHandler)
+```feature title="calculator.feature"
+@use(./CalculatorHandler.ts:CalculatorHandler)
 Feature: Calculator
 
   Scenario: Addition
@@ -139,7 +139,6 @@ Feature: Calculator
   Scenario: Multiply
     When I multiply by "2"
     Then I see "0" as a result
-`
 ```
 
 Now we can run it with `jest` command to see result.
