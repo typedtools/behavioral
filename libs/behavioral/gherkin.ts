@@ -19,11 +19,8 @@ export const parse = (template: string, filename: string, handlers: any | any[])
 
   const parsedGherkin = plainToClass(Gherkin, {
     ...ast,
-    feature: {
-      ...ast.feature,
-      handlers: Array.isArray(handlers) ? handlers : [handlers],
-    },
-    template,
+    feature: ast.feature,
+    filename,
   }, { strategy: 'excludeAll' });
 
   return parsedGherkin;

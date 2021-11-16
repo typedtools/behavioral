@@ -1,5 +1,5 @@
-import { Expose, Type } from 'class-transformer';
-import { concatMap, from, Observable, of } from 'rxjs';
+import { Expose, Type, Transform } from 'class-transformer';
+import { transformSteps } from '../transformers';
 import { Location } from './Location';
 import { Step } from './Step';
 
@@ -9,12 +9,6 @@ export class Background {
   location!: Location;
 
   @Expose()
-  @Type(() => Step)
+  @Transform(transformSteps)
   steps!: Step[];
-
-  execute(): Observable<void> {
-    return of(new Promise(resolve => resolve(undefined)) as Promise<void>).pipe(
-      concatMap(val => from(val))
-    );
-  }
 }
