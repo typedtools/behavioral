@@ -16,7 +16,7 @@ export class DataTable {
   location!: Location;
 
   @Expose()
-  @Transform(({ obj }) => {
+  @Transform(({ obj }: any) => {
     const [header, ...data] = obj.rows;
 
     return data.map((row: any) => {

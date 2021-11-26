@@ -1,6 +1,5 @@
-import { Step } from '../models/Step';
-import { StepArgument } from './Step';
+import { createParamDecorator, ExecutionContext } from '../helpers/ParamInjector';
 
-export const DataTable = (): ParameterDecorator => StepArgument((step: Step) => {
-  return step.dataTable?.rows.map(row => row.value);
-});
+export const DataTable = (): ParameterDecorator => createParamDecorator((context: ExecutionContext) => (
+  context.step.dataTable?.rows.map(row => row.value)
+));

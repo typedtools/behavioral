@@ -12,6 +12,9 @@
     "main": "index.js",
     "typings": "index.d.ts"
   },
+  "scripts": {
+    "build": "tsc"
+  },
   "peerDependencies": {
     "@typedtools/behavioral": "workspace:*",
     "rxjs": "7.3.0",

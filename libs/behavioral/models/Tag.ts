@@ -6,7 +6,7 @@ export class Tag<T = any> {
   name!: string;
 
   @Expose()
-  arguments?: T[];
+  arguments: T[] = [];
 
   @Expose()
   @Type(() => Location)

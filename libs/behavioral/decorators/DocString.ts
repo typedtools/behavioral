@@ -1,6 +1,5 @@
-import { Step } from '../models/Step';
-import { StepArgument } from './Step';
+import { createParamDecorator, ExecutionContext } from '../helpers/ParamInjector';
 
-export const DocString = (): ParameterDecorator => StepArgument((step: Step) => {
-  return step.docString?.content;
-});
+export const DocString = (): ParameterDecorator => createParamDecorator((context: ExecutionContext) => (
+  context.step.docString?.content
+));
