@@ -2,6 +2,26 @@
   "name": "@typedtools/behavioral-jest",
   "entries": [
     {
+      "version": "0.2.0",
+      "tag": "@typedtools/behavioral-jest_v0.2.0",
+      "date": "Fri, 26 Nov 2021 16:34:08 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Better cache mechanizm"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@typedtools/behavioral\" to `0.2.0`"
+          },
+          {
+            "comment": "Updating dependency \"@typedtools/behavioral\" to `0.2.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.1.4",
       "tag": "@typedtools/behavioral-jest_v0.1.4",
       "date": "Fri, 05 Nov 2021 14:30:13 GMT",

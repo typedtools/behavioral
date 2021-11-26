@@ -1,6 +1,13 @@
 # Change Log - @typedtools/behavioral-jest
 
-This log was last generated on Fri, 05 Nov 2021 14:30:13 GMT and should not be manually modified.
+This log was last generated on Fri, 26 Nov 2021 16:34:08 GMT and should not be manually modified.
+
+## 0.2.0
+Fri, 26 Nov 2021 16:34:08 GMT
+
+### Minor changes
+
+- Better cache mechanizm
 
 ## 0.1.4
 Fri, 05 Nov 2021 14:30:13 GMT
