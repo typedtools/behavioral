@@ -65,4 +65,3 @@ common/autoinstallers/*/.npmrc
 **/.rush/temp/
 libs/**/*.js
 libs/**/*.d.ts
-!libs/behavioral-jest/**/*.js

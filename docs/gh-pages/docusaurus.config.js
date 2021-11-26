@@ -7,14 +7,14 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Behavioral',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'Makes BDD easy',
   url: 'https://typedtools.github.io',
   baseUrl: '/behavioral/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'typedtools', // Usually your GitHub org/user name.
-  projectName: 'behavioral', // Usually your repo name.
+  organizationName: 'typedtools',
+  projectName: 'behavioral',
 
   presets: [
     [

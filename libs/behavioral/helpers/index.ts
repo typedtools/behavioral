@@ -3,3 +3,4 @@ export * from './Injector';
 export * from './isSkipped';
 export * from './matchStep';
 export * from './Registry';
+export * from './ParamInjector';

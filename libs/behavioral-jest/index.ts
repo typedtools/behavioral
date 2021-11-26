@@ -1,13 +1,13 @@
-const { parse } = require('@typedtools/behavioral');
+import { parse } from '@typedtools/behavioral';
 
-module.exports = {
-  process(raw, filename) {
+export default {
+  process(raw: any, filename: string): string {
     const gherkin = parse(raw, filename);
 
     const exports = raw
       .split(/@[a-zA-Z]+\((.*)\)/gi)
-      .filter((val, idx) => idx % 2)
-      .map((interpolation) => {
+      .filter((_: string, idx: number) => idx % 2)
+      .map((interpolation: string) => {
         let filename, exportAs;
 
         if (interpolation.indexOf(':') > -1) {
@@ -27,7 +27,7 @@ module.exports = {
       const { parse } = require('@typedtools/behavioral');
       const { Registry, isSkipped, executeScenario } = require('@typedtools/behavioral/helpers');
 
-      ${exports.reduce((acc, exp) => acc + `Registry.add('${exp.filename}:${exp.exportAs}', require('${exp.filename}').${exp.exportAs});`, '')}
+      ${exports.reduce((acc: string, exp: any) => acc + `Registry.add('${exp.filename}:${exp.exportAs}', require('${exp.filename}').${exp.exportAs});`, '')}
 
       const gherkin = ${JSON.stringify(gherkin)};
 

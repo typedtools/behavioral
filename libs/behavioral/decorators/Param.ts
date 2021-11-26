@@ -1,14 +1,5 @@
-import { Step } from '../models/Step';
-import { StepArgument } from './Step';
+import { createParamDecorator, ExecutionContext } from '../helpers/ParamInjector';
 
-export interface Dictionary<T = any> {
-  [key: string]: T;
-}
-
-export interface ParamConfig {
-  dict?: Dictionary;
-}
-
-export const Param = (name: string, config?: ParamConfig): ParameterDecorator => StepArgument((step: Step) => {  
-  return config?.dict ? config.dict[step.params[name]] : step.params[name];
-});
+export const Param = (name: string): ParameterDecorator => createParamDecorator((context: ExecutionContext) => (
+  context.params[name]
+));

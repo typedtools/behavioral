@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@typedtools/behavioral",
+      "comment": "Add support for state lifecycle and extract execution from model for better cache",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@typedtools/behavioral",
+  "email": "arkadiusz.zajac@synergycodes.com"
+}

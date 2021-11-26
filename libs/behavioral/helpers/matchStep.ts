@@ -2,8 +2,8 @@ import { STEP_META_KEY } from '../decorators';
 import { Step } from '../models';
 import { Type } from '../types';
 
-export const matchStep = (step: Step, handlers: any[]): [any, string, any[], any] => {
-  let result: [Type<any>, string, any[], any] | undefined;
+export const matchStep = (step: Step, handlers: any[]): [any, string, any] => {
+  let result: [Type<any>, string, any] | undefined;
 
   const matchers: any[] = handlers.reduce(
     (matchers: any[], handler: any) => {
@@ -26,7 +26,7 @@ export const matchStep = (step: Step, handlers: any[]): [any, string, any[], any
         const match: any = regex.exec(step.text);
 
         if (match !== null) {
-          result = [matcher.class, matcher.method, matcher.arguments, match.groups];
+          result = [matcher.class, matcher.method, match.groups];
         }
       }
     });

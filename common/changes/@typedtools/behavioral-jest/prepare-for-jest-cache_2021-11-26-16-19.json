@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@typedtools/behavioral-jest",
+      "comment": "Better cache mechanizm",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@typedtools/behavioral-jest",
+  "email": "arkadiusz.zajac@synergycodes.com"
+}
