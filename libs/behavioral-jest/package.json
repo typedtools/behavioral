@@ -24,6 +24,7 @@
     "@typedtools/behavioral": "workspace:*",
     "@types/jest": "27.0.2",
     "tslib": "2.3.1",
+    "@tools/typescript": "workspace:*",
     "typescript": "4.4.3"
   }
 }

@@ -1,50 +1,32 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
-
   "rushVersion": "5.47.0",
-
   "pnpmVersion": "6.3.0",
-
   "pnpmOptions": {
     "strictPeerDependencies": true,
-
     "preventManualShrinkwrapChanges": true,
-
     "useWorkspaces": true
   },
-
   "nodeSupportedVersionRange": ">=14.15.0 <15.0.0 || >=16.3.0 <17.0.0",
-
   "suppressNodeLtsWarning": true,
-
   "projectFolderMinDepth": 2,
   "projectFolderMaxDepth": 3,
-
   "gitPolicy": {
     "versionBumpCommitMessage": "Applying package updates. [skip-ci]",
     "changeLogUpdateCommitMessage": "Deleting change files and updating change logs for package updates. [skip-ci]"
   },
-
   "repository": {
     "url": "https://github.com/typedtools/behavioral",
-
     "defaultBranch": "master",
-
     "defaultRemote": "origin"
   },
-
   "eventHooks": {
     "preRushInstall": [],
-
     "postRushInstall": [],
-
     "preRushBuild": [],
-
     "postRushBuild": []
   },
-
   "variants": [],
-
   "projects": [
     {
       "packageName": "@typedtools/behavioral",
@@ -64,6 +46,11 @@
     {
       "packageName": "@docs/gh-pages",
       "projectFolder": "./docs/gh-pages",
+      "shouldPublish": false
+    },
+    {
+      "packageName": "@tools/typescript",
+      "projectFolder": "./tools/typescript",
       "shouldPublish": false
     }
   ]

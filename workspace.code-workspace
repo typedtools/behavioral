@@ -1,0 +1,66 @@
+{
+  "folders": [
+    {
+      "name": "✨ root",
+      "path": "."
+    },
+    {
+      "name": "📦 @typedtools/behavioral",
+      "path": "libs\\behavioral"
+    },
+    {
+      "name": "📦 @typedtools/behavioral-jest",
+      "path": "libs\\behavioral-jest"
+    }
+  ],
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "folke.vscode-monorepo-workspace"
+    ]
+  },
+  "settings": {
+    "eslint.format.enable": true,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true,
+    "eslint.packageManager": "pnpm",
+    "eslint.options": {
+      "overrideConfigFile": "./common/autoinstallers/rush-eslint/.eslintrc.js"
+    },
+    "eslint.nodePath": "./common/autoinstallers/rush-eslint/node_modules",
+    "[javascript]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "eslint.lintTask.enable": true,
+    "eslint.probe": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "html",
+      "vue",
+      "markdown"
+    ],
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact"
+    ],
+    "eslint.alwaysShowStatus": true,
+    "editor.codeActionsOnSave": [
+      "source.organizeImports",
+      "source.addMissingImports", // VSCode
+      "source.fixAll.eslint", // Extension: ESLint
+    ],
+  },
+}

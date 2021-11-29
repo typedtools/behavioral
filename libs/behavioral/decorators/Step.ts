@@ -32,7 +32,6 @@ export interface StepHandler {
 export const Step = (expression: StepExpression): MethodDecorator => (
   target: any,
   propertyKey: string | symbol,
-  descriptor: PropertyDescriptor
 ) => {
   const handlers: StepHandler[] = Reflect.getMetadata(STEP_META_KEY, target.constructor) ?? [];
   const handler: StepHandler | undefined = handlers.find(handler => handler.method === propertyKey);
@@ -53,8 +52,7 @@ export const Step = (expression: StepExpression): MethodDecorator => (
 
 export const StepOption = <T>(option: StepMatcherOption<T>): MethodDecorator => (
   target: any,
-  propertyKey: string | symbol,
-  descriptor: PropertyDescriptor
+  propertyKey: string | symbol
 ) => {
   const handlers: StepHandler[] = Reflect.getMetadata(STEP_META_KEY, target.constructor) ?? [];
   const handler: StepHandler | undefined = handlers.find(handler => handler.method === propertyKey);

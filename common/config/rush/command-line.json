@@ -17,6 +17,25 @@
       "ignoreMissingScript": true,
       "enableParallelism": false,
       "allowWarningsInSuccessfulBuild": true
+    },
+    {
+      "name": "eslint",
+      "commandKind": "global",
+      "summary": "This command invokes Eslint to validate source files.",
+      "safeForSimultaneousRushProcesses": true,
+
+      "autoinstallerName": "rush-eslint",
+
+      "shellCommand": "eslint --ext .ts,.tsx --ignore-path common/autoinstallers/rush-eslint/.eslintignore -c common/autoinstallers/rush-eslint/.eslintrc.js ."
+    },
+    {
+      "name": "eslint-staged",
+      "commandKind": "global",
+      "summary": "Used by the pre-commit Git hook. This command invokes Eslint to reformat staged changes.",
+
+      "autoinstallerName": "rush-eslint",
+
+      "shellCommand": "lint-staged -c common/autoinstallers/rush-eslint/.lintstagedrc"
     }
   ],
 

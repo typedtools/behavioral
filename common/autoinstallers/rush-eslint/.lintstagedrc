@@ -1,0 +1,3 @@
+{
+  "*.{ts,tsx,js,jsx}": "eslint --ext .ts,.tsx --ignore-path common/autoinstallers/rush-eslint/.eslintignore -c common/autoinstallers/rush-eslint/.eslintrc.js --fix"
+}

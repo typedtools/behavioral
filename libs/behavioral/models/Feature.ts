@@ -1,4 +1,4 @@
-import { Expose, plainToClass, Transform, Type } from 'class-transformer';
+import { Expose, Transform, Type } from 'class-transformer';
 import { Scenario } from './Scenario';
 import { Location } from './Location';
 import { Background } from './Background';

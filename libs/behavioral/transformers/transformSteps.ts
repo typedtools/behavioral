@@ -5,7 +5,7 @@ export const transformSteps = ({ obj, key }: any): Step[] => {
   let prevKeyword: string;
 
   return obj[key].map((step: any) => {
-    let result: any = {...step};
+    const result: any = { ...step };
     const keyword = (step.keyword ?? step.type).toLowerCase().trim();
 
     if (['and', '*'].includes(keyword)) {
