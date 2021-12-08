@@ -1,3 +1,4 @@
+/* eslint-disable */
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
@@ -26,12 +27,6 @@ const config = {
           // Please change this to your repo.
           editUrl: 'https://github.com/typedtools/behavioral/edit/docs/gh-pages/',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/typedtools/behavioral/edit/docs/gh-pages/blog/',
-        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -51,7 +46,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'getting-started/installation',
+            docId: 'installation',
             position: 'left',
             label: 'Docs',
           },
@@ -70,7 +65,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/getting-started/installation',
+                to: '/docs/installation',
               },
             ],
           },
@@ -104,6 +99,7 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} TypedTools, Inc. Built with Docusaurus.`,
       },
       prism: {
+        additionalLanguages: ['gherkin'],
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
