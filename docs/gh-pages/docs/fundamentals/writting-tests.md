@@ -78,7 +78,7 @@ Setting it on feature level is equivalent of `describe.skip` (skipping whole fil
 
 **@use()**
 
-Allows to pass execution context to tests. This tag requires path to the file containing [execution context class](./execution-context).
+Allows to pass execution context to tests. This tag requires path to the file containing [execution context class](./execution-context/introduction).
 
 ```gherkin
 # Use context from ./path/to/ExecutionContext exported as ExecutionContext
