@@ -15,7 +15,7 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'typedtools',
-  projectName: 'behavioral',
+  projectName: 'typedtools.github.io',
 
   presets: [
     [
