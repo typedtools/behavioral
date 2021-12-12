@@ -15,5 +15,5 @@ jobs:
         with:
           node-version: 14
       - run: node common/scripts/install-run-rush.js install
-      - run: node common/scripts/install-run-rush.js test
       - run: node common/scripts/install-run-rush.js build
+      - run: node common/scripts/install-run-rush.js test

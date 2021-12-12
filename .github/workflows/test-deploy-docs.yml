@@ -12,7 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-      - run: curl -fsSL https://get.pnpm.io/install.sh | sh -
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.3.0
       - run: node common/scripts/install-run-rush.js install
       - name: Build documentation
         working-directory: docs/gh-pages
