@@ -10,6 +10,10 @@ export interface ParamInjectFn<T = any> {
     (context: ExecutionContext): T;
 }
 
+export interface ParamDecoratorOptions {
+    type?: () => new (...args: any) => any | [new (...args: any) => any]
+}
+
 export class ParamInjector {
     private static store: Map<string, { [key: number]: ParamInjectFn }> = new Map();
 
@@ -30,7 +34,8 @@ export class ParamInjector {
     }
 }
 
-export const createParamDecorator = (fn: ParamInjectFn): ParameterDecorator => (
+// eslint-disable-next-line
+export const createParamDecorator = (fn: ParamInjectFn, options?: ParamDecoratorOptions): ParameterDecorator => (
     target: any,
     propertyKey: string | symbol,
     parameterIndex: number,
@@ -41,6 +46,8 @@ export const createParamDecorator = (fn: ParamInjectFn): ParameterDecorator => (
         target,
         propertyKey,
         parameterIndex,
-        (context: ExecutionContext) => plainToClass(Type, fn(context))
+        (context: ExecutionContext) => {
+           return plainToClass(Type, fn(context));
+        }
     );
 }
