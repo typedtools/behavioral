@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_docs_gh_pages=self.webpackChunk_docs_gh_pages||[]).push([[426],{3922:function(e){e.exports=JSON.parse('{"permalink":"/behavioral/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"previousPage":null,"nextPage":null,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
