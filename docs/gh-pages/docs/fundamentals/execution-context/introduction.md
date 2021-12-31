@@ -4,11 +4,11 @@ sidebar_position: 1
 
 # Introduction
 
-Each step used in scenario require it's execution to be defined in context class. Execution context class needs to be decorated with `@ExecutionContext()`. Take a look at the example below:
+Each step used in scenario require it's execution to be defined in context class. Execution context class needs to be decorated with `@Context()`. Take a look at the example below:
 
 ```gherkin title="guess-the-word.feature"
 # Attach context to test
-@use(./guess-the-word.ts:GuessTheWordContext)
+@bind(./guess-the-word.ts:GuessTheWordContext)
 Feature: Guess the word
 
   # The second example has three steps
@@ -21,9 +21,9 @@ Feature: Guess the word
 And That's how could execution context look like for test above:
 
 ```typescript title="guess-the-word.ts"
-import { ExecutionContext, Given, When, Then } from '@typedtools/behavioral';
+import { Context, Given, When, Then } from '@typedtools/behavioral';
 
-@ExecutionContext()
+@Context()
 export class GuessTheWordContext {
   @Given('the Maker has started a game with the word "silky"')
   makerStartsAGame(): void {

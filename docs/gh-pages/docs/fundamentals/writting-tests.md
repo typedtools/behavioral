@@ -82,9 +82,9 @@ Allows to pass execution context to tests. This tag requires path to the file co
 
 ```gherkin
 # Use context from ./path/to/ExecutionContext exported as ExecutionContext
-@use(./path/to/ExecutionContext:ExecutionContext)
+@bind(./path/to/ExecutionContext:ExecutionContext)
 # Use context from ./path/to/ExecutionContext default export
-@use(./path/to/ExecutionContext) 
+@bind(./path/to/ExecutionContext) 
 ```
 
 It can be defined for feature or scenario. All context defined on feature level are inherited by scenarios.
