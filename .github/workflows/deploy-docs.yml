@@ -1,0 +1,30 @@
+name: Deploy Documentation to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+    paths: [docs/gh-pages/**]
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.3.0
+      - run: node common/scripts/install-run-rush.js install
+      - name: Build documentation
+        working-directory: docs/gh-pages
+        run: |
+          pnpm build
+        
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/gh-pages/build
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
