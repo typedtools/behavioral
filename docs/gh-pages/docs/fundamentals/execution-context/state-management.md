@@ -24,11 +24,11 @@ export class BlogState {
 To use state class in execution context declare property and decorate it with `State` decorator.
 
 ```typescript
-import { State, Given, Then, Param } from '@typedtools/behavioral';
+import { Context, State, Given, Then, Param } from '@typedtools/behavioral';
 
 // ...
 
-@ExecutionContext()
+@Context()
 export class BlogContext {
   @State()
   state!: BlogState;
