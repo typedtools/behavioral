@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { parse } from '@typedtools/behavioral';
 
 export default {

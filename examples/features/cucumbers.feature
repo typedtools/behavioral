@@ -1,4 +1,4 @@
-@use(./handlers/EatingHandler.ts:EatingHandler)
+@bind(./contexts/EatingContext.ts:EatingContext)
 Feature: Eating
 
   Scenario Outline: eating

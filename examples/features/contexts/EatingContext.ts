@@ -1,11 +1,10 @@
-import { Given, Handler, Param, Then, When } from '@typedtools/behavioral/decorators';
+import { Context, Given, Param, State, Then, When } from '@typedtools/behavioral';
 import { CucumbersState } from '../states/CucumbersState';
 
-@Handler()
-export class EatingHandler {
-  constructor(
-    private cucumbers: CucumbersState,
-  ) {}
+@Context()
+export class EatingContext {
+  @State()
+  cucumbers!: CucumbersState;
 
   @Given('there are <amount> cucumbers')
   setCucumberAmount(@Param('amount') amount: number): void {

@@ -1,4 +1,4 @@
-@use(./handlers/BasicCalculatorHandler.ts:BasicCalculatorHandler)
+@bind(./contexts/BasicCalculatorContext.ts:BasicCalculatorContext)
 Feature: Calculator
 
   Scenario: Addition

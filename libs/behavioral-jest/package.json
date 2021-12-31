@@ -18,7 +18,8 @@
   "peerDependencies": {
     "@typedtools/behavioral": "workspace:*",
     "rxjs": "7.3.0",
-    "tslib": "2.3.1"
+    "tslib": "2.3.1",
+    "reflect-metadata": "0.1.13"
   },
   "devDependencies": {
     "@typedtools/behavioral": "workspace:*",

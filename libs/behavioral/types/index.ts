@@ -1,5 +1,4 @@
 export * from './Async';
-export * from './OnDestroy';
-export * from './OnInit';
+export * from './FeatureLifecycle';
 export * from './Type';
-export * from './StateLifecycle';
+
