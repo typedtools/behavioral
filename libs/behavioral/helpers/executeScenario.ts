@@ -1,22 +1,19 @@
 import { concatMap, from, lastValueFrom, Observable, of } from 'rxjs';
+import { DecoratorTypes } from '../DecoratorTypes';
 import { Background, Feature, Scenario, Step, Tag } from '../models';
-import { Async, StateLifecycle } from '../types';
-import { Injector } from './Injector';
+import { Async, FeatureLifecycle } from '../types';
 import { matchStep } from './matchStep';
 import { ParamInjector } from './ParamInjector';
 import { Registry } from './Registry';
 
 export const executeScenario = (scenario: Scenario, parent: Feature): Promise<void> => {
-  const injector = new Injector();
-  const handlers: any[] = [...parent.tags, ...scenario.tags]
+  const contexts: any[] = [...parent.tags, ...scenario.tags]
     .filter((tag: Tag) => (
-      tag.name === 'use'
+      tag.name === 'bind'
     ))
     .map((tag: Tag) => (
-      injector.get(Registry.get(tag.arguments[0]))
+      new (Registry.get(tag.arguments[0]))
     ));
-
-  const states = injector.all();
 
   const backgroundSteps: Step[] = parent.backgrounds.reduce(
     (acc: Step[], background: Background) => {
@@ -26,9 +23,9 @@ export const executeScenario = (scenario: Scenario, parent: Feature): Promise<vo
     }, [] as Step[]
   );
   const getExecutionFnForStep = (step: Step) => {
-    const [handler, method, params] = matchStep(step, handlers);
+    const [context, method, params] = matchStep(step, contexts);
 
-    return () => handler[method](...ParamInjector.get(handler, method).map(fn => fn({
+    return () => context[method](...ParamInjector.get(context, method).map(fn => fn({
       step,
       params,
     })));
@@ -40,21 +37,36 @@ export const executeScenario = (scenario: Scenario, parent: Feature): Promise<vo
   const backgroundExecution: Array<() => Async> = backgroundSteps.map(getExecutionFnForStep);
   const testExecution: Array<() => Async> = scenario.steps.map(getExecutionFnForStep);
 
-  states.forEach((state: StateLifecycle) => {
-    if (state.beforeScenario) {
-      beforeScenarioHooks.push(() => (state as Required<StateLifecycle>).beforeScenario());
+  contexts.forEach((context: FeatureLifecycle) => {
+    if (context.beforeScenario) {
+      beforeScenarioHooks.push(() => (context as Required<FeatureLifecycle>).beforeScenario());
     }
 
-    if (state.afterScenario) {
-      afterScenarioHooks.push(() => (state as Required<StateLifecycle>).afterScenario());
+    if (context.afterScenario) {
+      afterScenarioHooks.push(() => (context as Required<FeatureLifecycle>).afterScenario());
     }
 
-    if (state.afterBackground) {
-      afterBackgroundHooks.push(() => (state as Required<StateLifecycle>).afterBackground());
+    if (context.afterBackground) {
+      afterBackgroundHooks.push(() => (context as Required<FeatureLifecycle>).afterBackground());
     }
   });
 
+  const injectStates = () => {
+    contexts.forEach(context => {
+      Object.entries(context.constructor.decorators)
+        .map(([key, decorators]: any) => [
+          key, 
+          decorators.find((decorator: any) => decorator.type === DecoratorTypes.STATE)
+        ])
+        .filter(([_, decorator]: any) => decorator !== undefined)
+        .forEach(([key, decorator]: any) => {
+          context[key] = new (decorator.args[0]());
+        })
+    })
+  }
+
   const source$ = of(
+    injectStates,
     ...beforeScenarioHooks,
     ...backgroundExecution,
     ...afterBackgroundHooks,

@@ -1,12 +1,11 @@
-import { Given, Handler, Param, Then, When } from '@typedtools/behavioral/decorators';
+import { Context, Given, Param, State, Then, When } from '@typedtools/behavioral';
 import { Operator } from '../classes/Calculator';
 import { CalculatorState } from '../states/CalculatorState';
 
-@Handler()
-export class BasicCalculatorHandler {
-  constructor(
-    private state: CalculatorState,
-  ) {}
+@Context()
+export class BasicCalculatorContext {
+  @State()
+  state!: CalculatorState;
 
   @Given('I start with "<num>"')
   @When('I type "<num>"')

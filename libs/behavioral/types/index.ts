@@ -1,4 +1,4 @@
 export * from './Async';
-export * from './StateLifecycle';
+export * from './FeatureLifecycle';
 export * from './Type';
 

@@ -1,6 +1,6 @@
 import { Async } from './Async';
 
-export interface StateLifecycle {
+export interface FeatureLifecycle {
   beforeScenario?(): Async;
   afterBackground?(): Async;
   afterScenario?(): Async;
