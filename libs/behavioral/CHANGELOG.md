@@ -1,6 +1,14 @@
 # Change Log - @typedtools/behavioral
 
-This log was last generated on Fri, 26 Nov 2021 16:34:08 GMT and should not be manually modified.
+This log was last generated on Sun, 02 Jan 2022 18:34:40 GMT and should not be manually modified.
+
+## 0.3.0
+Sun, 02 Jan 2022 18:34:40 GMT
+
+### Minor changes
+
+- Adjust library to documentation
+- Inject state into property instead of constructor
 
 ## 0.2.0
 Fri, 26 Nov 2021 16:34:08 GMT
