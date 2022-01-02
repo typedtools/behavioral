@@ -67,7 +67,6 @@ importers:
   ../../libs/behavioral:
     specifiers:
       '@cucumber/gherkin': 22.0.0
-      '@tools/typescript': workspace:*
       '@types/uuid': 8.3.1
       class-transformer: 0.4.0
       eslint: 8.3.0
@@ -82,20 +81,17 @@ importers:
       rxjs: 7.3.0
       uuid: 8.3.2
     devDependencies:
-      '@tools/typescript': link:../../tools/typescript
       eslint: 8.3.0
       tslib: 2.3.1
       typescript: 4.4.3
 
   ../../libs/behavioral-jest:
     specifiers:
-      '@tools/typescript': workspace:*
       '@typedtools/behavioral': workspace:*
       '@types/jest': 27.0.2
       tslib: 2.3.1
       typescript: 4.4.3
     devDependencies:
-      '@tools/typescript': link:../../tools/typescript
       '@typedtools/behavioral': link:../behavioral
       '@types/jest': 27.0.2
       tslib: 2.3.1
@@ -3126,7 +3122,7 @@ packages:
       react-error-overlay: 6.0.9
       react-helmet: 6.1.0_react@16.14.0
       react-loadable: /@docusaurus/react-loadable/5.5.2_react@16.14.0
-      react-loadable-ssr-addon-v5-slorber: 1.0.1_7a22040a17d4dc4bcd1fad261866e1d3
+      react-loadable-ssr-addon-v5-slorber: 1.0.1_653c8f50091ceb442bfd6c96b000287d
       react-router: 5.2.1_react@16.14.0
       react-router-config: 5.1.1_react-router@5.2.1+react@16.14.0
       react-router-dom: 5.3.0_react@16.14.0
@@ -11293,7 +11289,7 @@ packages:
     resolution: {integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==}
     dev: false
 
-  /react-loadable-ssr-addon-v5-slorber/1.0.1_7a22040a17d4dc4bcd1fad261866e1d3:
+  /react-loadable-ssr-addon-v5-slorber/1.0.1_653c8f50091ceb442bfd6c96b000287d:
     resolution: {integrity: sha512-lq3Lyw1lGku8zUEJPDxsNm1AfYHBrO9Y1+olAYwpUJ2IGFBskM0DMKok97A6LWUpHm+o7IvQBOWu9MLenp9Z+A==}
     engines: {node: '>=10.13.0'}
     peerDependencies:
