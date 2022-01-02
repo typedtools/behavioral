@@ -1,6 +1,6 @@
 {
   "name": "@typedtools/behavioral-jest",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "index.js",
   "description": "Allows to use behavioral with jest test runner",
   "repository": {

@@ -2,6 +2,26 @@
   "name": "@typedtools/behavioral-jest",
   "entries": [
     {
+      "version": "0.3.0",
+      "tag": "@typedtools/behavioral-jest_v0.3.0",
+      "date": "Sun, 02 Jan 2022 18:25:40 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Fix bug with missing Reflect.metadata"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@typedtools/behavioral\" to `0.3.0`"
+          },
+          {
+            "comment": "Updating dependency \"@typedtools/behavioral\" to `0.3.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.2.0",
       "tag": "@typedtools/behavioral-jest_v0.2.0",
       "date": "Fri, 26 Nov 2021 16:34:08 GMT",
