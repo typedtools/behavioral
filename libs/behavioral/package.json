@@ -35,7 +35,6 @@
   },
   "devDependencies": {
     "typescript": "4.4.3",
-    "@tools/typescript": "workspace:*",
     "tslib": "2.3.1",
     "eslint": "8.3.0"
   }
