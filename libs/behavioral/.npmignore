@@ -1,3 +1,4 @@
 .rush
 **/*.ts
 !**/*.d.ts
+__tests__

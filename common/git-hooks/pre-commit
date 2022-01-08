@@ -1,3 +1,5 @@
 #!/bin/sh
 
-node common/scripts/install-run-rush.js eslint-staged || exit $?
+if [[ -z "${CI}" ]]; then
+  node common/scripts/install-run-rush.js eslint-staged || exit $?
+fi
