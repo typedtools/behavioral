@@ -30,10 +30,6 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-        gtag: {
-          trackingID: 'GTM-KN97KB9',
-          anonymizeIP: true,
-        },
       }),
     ],
   ],
@@ -107,6 +103,10 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      gtag: {
+        trackingID: 'GTM-KN97KB9',
+        anonymizeIP: true,
+      }
     }),
 };
 
