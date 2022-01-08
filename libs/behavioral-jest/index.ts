@@ -25,8 +25,7 @@ export default {
       });
 
     return `
-      const { parse } = require('@typedtools/behavioral');
-      const { Registry, isSkipped, executeScenario } = require('@typedtools/behavioral/helpers');
+      const { parse, Registry, isSkipped, executeScenario } = require('@typedtools/behavioral');
 
       ${exports.reduce((acc: string, exp: any) => acc + `Registry.add('${exp.filename}:${exp.exportAs}', require('${exp.filename}').${exp.exportAs});`, '')}
 

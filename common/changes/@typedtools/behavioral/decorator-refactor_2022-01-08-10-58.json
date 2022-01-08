@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@typedtools/behavioral",
+      "comment": "refactor storing of context metadata",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@typedtools/behavioral"
+}
