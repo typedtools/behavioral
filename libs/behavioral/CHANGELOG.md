@@ -1,6 +1,13 @@
 # Change Log - @typedtools/behavioral
 
-This log was last generated on Sun, 02 Jan 2022 18:34:40 GMT and should not be manually modified.
+This log was last generated on Sat, 08 Jan 2022 11:33:49 GMT and should not be manually modified.
+
+## 0.4.0
+Sat, 08 Jan 2022 11:33:49 GMT
+
+### Minor changes
+
+- refactor storing of context metadata
 
 ## 0.3.0
 Sun, 02 Jan 2022 18:34:40 GMT

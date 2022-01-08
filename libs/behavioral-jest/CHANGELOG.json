@@ -2,6 +2,26 @@
   "name": "@typedtools/behavioral-jest",
   "entries": [
     {
+      "version": "0.4.0",
+      "tag": "@typedtools/behavioral-jest_v0.4.0",
+      "date": "Sat, 08 Jan 2022 11:33:49 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "refactor storing of context metadata"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@typedtools/behavioral\" to `0.4.0`"
+          },
+          {
+            "comment": "Updating dependency \"@typedtools/behavioral\" to `0.4.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.3.0",
       "tag": "@typedtools/behavioral-jest_v0.3.0",
       "date": "Sun, 02 Jan 2022 18:34:40 GMT",
