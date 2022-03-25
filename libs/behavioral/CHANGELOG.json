@@ -2,6 +2,18 @@
   "name": "@typedtools/behavioral",
   "entries": [
     {
+      "version": "0.4.1",
+      "tag": "@typedtools/behavioral_v0.4.1",
+      "date": "Fri, 25 Mar 2022 19:40:30 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Fix type conversion"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.4.0",
       "tag": "@typedtools/behavioral_v0.4.0",
       "date": "Sat, 08 Jan 2022 11:33:49 GMT",
