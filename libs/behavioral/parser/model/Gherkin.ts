@@ -40,14 +40,12 @@ export class Gherkin {
       }
 
       if (child.scenario) {
-        switch (child.scenario?.keyword.trim()) {
+        switch (child.scenario.keyword.trim()) {
           case 'Scenario Outline':
             scenarios.push(...transformScenarioOutline(child.scenario));
             break;
           case 'Scenario':
             scenarios.push(plainToClass(Scenario, child.scenario, { strategy: 'excludeAll' }));
-            break;
-          default:
             break;
         }
       }

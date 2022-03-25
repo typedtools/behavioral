@@ -8,7 +8,6 @@ export const createExpressionDecorator = (expression: string, type: 'given' | 'w
       when: [],
       then: []
     };
-    const regExp = new RegExp(`^${expression.replace(/</gi, '(?<').replace(/>/gi, '>.*)')}$`);
 
     expressions[type].push({
       key: propertyKey,

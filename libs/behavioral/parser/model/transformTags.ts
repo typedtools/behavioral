@@ -3,6 +3,8 @@ import { Tag } from './Tag';
 
 export const transformTags = ({ obj, key }: any): Tag[] => {
   return obj[key].map((astTag: any) => {
+    if (astTag instanceof Tag) return astTag;
+
     const args: any[] = [];
     const match = /@([a-zA-Z0-9]+)(\((.*)\))?/.exec(astTag.name) as RegExpExecArray;
 
