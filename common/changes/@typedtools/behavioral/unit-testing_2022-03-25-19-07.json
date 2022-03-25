@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@typedtools/behavioral",
+      "comment": "Fix type conversion",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@typedtools/behavioral"
+}

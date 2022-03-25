@@ -26,9 +26,7 @@ class Item {
   value!: number;
 }
 
-class TestState {
-
-}
+class TestState {}
 
 @Context()
 class TestContext {

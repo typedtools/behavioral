@@ -17,6 +17,8 @@ export class DataTable {
 
   @Expose()
   @Transform(({ obj }: any) => {
+    if (obj instanceof DataTable) return obj.rows;
+
     const [header, ...data] = obj.rows;
 
     return data.map((row: any) => {

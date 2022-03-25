@@ -7,6 +7,10 @@ export const convertToType = (target: any, type: () => AnyConstructor): any => {
 
   if (Type instanceof Array) {
     return target.map((value: any) => plainToClass(Type[0], value));
+  } else if (Type === Array) {
+    return target;
+  } else if (typeof target === 'string' && Type !== String) {
+    return plainToClass(Type, JSON.parse(target as string));
   } else {
     return plainToClass(Type, target);
   }
