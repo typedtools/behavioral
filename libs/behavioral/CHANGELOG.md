@@ -1,6 +1,13 @@
 # Change Log - @typedtools/behavioral
 
-This log was last generated on Sat, 08 Jan 2022 11:33:49 GMT and should not be manually modified.
+This log was last generated on Fri, 25 Mar 2022 19:40:30 GMT and should not be manually modified.
+
+## 0.4.1
+Fri, 25 Mar 2022 19:40:30 GMT
+
+### Patches
+
+- Fix type conversion
 
 ## 0.4.0
 Sat, 08 Jan 2022 11:33:49 GMT
